@@ -29,8 +29,8 @@ var config = {
 			name: 'uptodater'
 		},
 		port: 3000,
-		db: 'mongodb://localhost/uptodater-production'
-		
+		db: process.env.MONGOHQ_URL || 'mongodb://localhost/uptodater-production'
+
 	}
 };
 
