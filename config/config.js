@@ -1,8 +1,9 @@
 var path = require('path'),
-		rootPath = path.normalize(__dirname + '/..'),
-		env = process.env.NODE_ENV || 'development';
+	rootPath = path.normalize(__dirname + '/..'),
+	env = process.env.NODE_ENV || 'development';
 
 var config = {
+
 	development: {
 		root: rootPath,
 		app: {
@@ -32,6 +33,7 @@ var config = {
 		db: process.env.MONGOHQ_URL || 'mongodb://localhost/uptodater-production'
 
 	}
+
 };
 
 module.exports = config[env];

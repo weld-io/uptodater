@@ -12,9 +12,9 @@ var UpdateSchema = new Schema({
 	dateCreated: { type: Date, default: Date.now }
 });
 
-UpdateSchema.virtual('date')
-	.get(function(){
-		return this._id.getTimestamp();
-	});
+// UpdateSchema.virtual('date')
+// 	.get(function(){
+// 		return this._id.getTimestamp();
+// 	});
 
 mongoose.model('Update', UpdateSchema);
