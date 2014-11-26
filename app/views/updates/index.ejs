@@ -1,0 +1,13 @@
+<% include ../header %>
+
+<h1><%- title %></h1>
+
+<% if (updates.length) { %>
+	<ul>
+		<% updates.forEach(function(update){ %>
+			<li><%= update.title %></li>
+		<% }) %>
+	</ul>
+<% } %>
+
+<% include ../footer %>

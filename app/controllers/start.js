@@ -1,13 +1,8 @@
-var express = require('express'),
-	router = express.Router(),
-	mongoose = require('mongoose');
+module.exports = {
 
-module.exports = function (app) {
-	app.use('/', router);
-};
+	index: function (req, res, next) {
+		console.log('INDEX');
+		res.render('index', { title: 'UpToDater' });
+	}
 
-router.get('/', function (req, res, next) {
-
-	res.render('index', { title: 'UpToDater' });
-	
-});
+}
