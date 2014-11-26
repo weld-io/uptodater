@@ -1,19 +1,19 @@
 var express = require('express'),
 	router = express.Router(),
 	mongoose = require('mongoose'),
-	Article = mongoose.model('Article');
+	Update = mongoose.model('Update');
 
 module.exports = function (app) {
 	app.use('/', router);
 };
 
-router.get('/', function (req, res, next) {
+router.get('/updates', function (req, res, next) {
 
-	Article.find(function (err, articles) {
+	Update.find(function (err, updates) {
 		if (err) return next(err);
 		res.render('index', {
 			title: 'Generator-Express MVC',
-			articles: articles
+			updates: updates
 		});
 	});
 	
