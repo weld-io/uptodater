@@ -15,8 +15,9 @@ module.exports = function (app, config) {
 
 	router.get('/', startController.index);
 
-	router.get('/api', apiController.index);
-	
+	router.get('/api/updates', apiController.list);
+	router.post('/api/updates', apiController.create);
+
 	router.get('/updates', updatesController.index);
 
 };

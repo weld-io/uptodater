@@ -22,4 +22,4 @@ Server will default to **http://localhost:3002**
 
 ## Queries
 
-	http://localhost:3002/api?after=2014-01-20
+	http://localhost:3002/api/updates?from=2014-11-28

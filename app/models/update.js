@@ -9,7 +9,9 @@ var UpdateSchema = new Schema({
 	authors: String,
 	url: String,
 	imageUrl: String,
-	dateCreated: { type: Date, default: Date.now }
+	dateCreated: { type: Date, default: Date.now, index: true },
+	reloadNeeded: { type: Boolean, default: true },
+	priority: { type: Number, default: 2 } // 1-3
 });
 
 // UpdateSchema.virtual('date')
