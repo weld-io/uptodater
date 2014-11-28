@@ -5,7 +5,7 @@ var mongoose = require('mongoose'),
 
 var UpdateSchema = new Schema({
 	title: String,
-	text: String,
+	description: String,
 	authors: String,
 	url: String,
 	imageUrl: String,

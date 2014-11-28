@@ -20,7 +20,7 @@ module.exports = {
 	},
 
 	// Create new update
-	// curl -X POST -H "Content-Type: application/json" -d '{ "title": "My title", "text": "Bla bla bla", "reloadNeeded": false }' http://localhost:3002/api/updates?password=M4EgsuY7PDZi
+	// curl -X POST -H "Content-Type: application/json" -d '{ "title": "My title", "description": "Bla bla bla", "reloadNeeded": false }' http://localhost:3002/api/updates?password=M4EgsuY7PDZi
 	create: function (req, res, next) {
 		if (req.query.password === 'M4EgsuY7PDZi') {
 			var newUpdate = new Update(req.body);
@@ -39,27 +39,32 @@ module.exports = {
 	},
 
 	// Delete update
-	// curl -X DELETE http://localhost:3002/api/updates/5477a6f88906b9fc766c843e
+	// curl -X DELETE http://localhost:3002/api/updates/5477a6f88906b9fc766c843e?password=M4EgsuY7PDZi
 	delete: function (req, res, next) {
-		var searchParams;
-		if (req.params.id === 'ALL') {
-			searchParams = {};
+		if (req.query.password === 'M4EgsuY7PDZi') {
+			var searchParams;
+			if (req.params.id === 'ALL') {
+				searchParams = {};
+			}
+			else {
+				{ _id: req.params.id }
+			}
+
+			Update.remove(
+				searchParams,
+				function(updateErr, numberAffected, rawResponse) {
+					if (updateErr) {
+						res.json(500, updateErr);
+					}
+					else {
+						res.json(200, 'Deletion complete');
+					}
+				}
+			);
 		}
 		else {
-			{ _id: req.params.id }
+			return res.json(401, 'Unauthorized');
 		}
-
-		Update.remove(
-			searchParams,
-			function(updateErr, numberAffected, rawResponse) {
-				if (updateErr) {
-					res.json(500, updateErr);
-				}
-				else {
-					res.json(200, 'Deletion complete');
-				}
-			}
-		);
 	}
 
 }
