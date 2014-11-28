@@ -21,9 +21,9 @@ module.exports = {
 		});
 	},
 
+	// Create new update
 	// curl -X POST -H "Content-Type: application/json" -d '{ "title": "My title", "text": "Bla bla bla", "reloadNeeded": false }' http://localhost:3002/api/updates
 	create: function (req, res, next) {
-		console.log('CREATE', req.body);
 		var newUpdate = new Update(req.body);
 		newUpdate.save(function (err) {
 			if (err) {
@@ -33,6 +33,30 @@ module.exports = {
 				return res.json(newUpdate);
 			}
 		});
+	},
+
+	// Delete update
+	// curl -X DELETE http://localhost:3002/api/updates/5477a6f88906b9fc766c843e
+	delete: function (req, res, next) {
+		var searchParams;
+		if (req.params.id === 'ALL') {
+			searchParams = {};
+		}
+		else {
+			{ _id: req.params.id }
+		}
+
+		Update.remove(
+			searchParams,
+			function(updateErr, numberAffected, rawResponse) {
+				if (updateErr) {
+					res.json(500, updateErr);
+				}
+				else {
+					res.json(200, 'Deletion complete');
+				}
+			}
+		);
 	}
 
 }
