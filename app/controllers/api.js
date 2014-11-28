@@ -6,7 +6,8 @@ module.exports = {
 	list: function (req, res, next) {
 		var searchQuery = {};
 		if (req.query.from) {
-			searchQuery = { dateCreated: {"$gte": new Date(req.query.from)} };
+			var currentTime = new Date();
+			searchQuery = { dateCreated: { "$gte": new Date(req.query.from), "$lt": currentTime } };
 		}
 
 		Update.find(searchQuery, null, { sort: {dateCreated: -1} }, function (err, updates) {
