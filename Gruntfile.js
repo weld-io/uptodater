@@ -8,7 +8,8 @@ module.exports = function (grunt) {
 	// load all grunt tasks
 	require('load-grunt-tasks')(grunt);
 
-	var reloadPort = 35725, files;
+	var reloadPort = 35725;
+	var files;
 
 	grunt.initConfig({
 		pkg: grunt.file.readJSON('package.json'),

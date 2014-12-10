@@ -4,7 +4,7 @@ var mongoose = require('mongoose'),
 	Schema = mongoose.Schema;
 
 var UpdateSchema = new Schema({
-	title: String,
+	title: { type: String, required: true },
 	description: String,
 	authors: String,
 	url: String,

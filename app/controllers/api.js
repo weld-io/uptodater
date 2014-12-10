@@ -1,6 +1,8 @@
 var mongoose = require('mongoose');
 var Update = mongoose.model('Update');
 
+var API_PASSWORD = 'M4EgsuY7PDZi';
+
 module.exports = {
 
 	list: function (req, res, next) {
@@ -21,9 +23,10 @@ module.exports = {
 	},
 
 	// Create new update
-	// curl -X POST -H "Content-Type: application/json" -d '{ "title": "My title", "description": "Bla bla bla", "reloadNeeded": false }' http://localhost:3002/api/updates?password=M4EgsuY7PDZi
+	// curl -X POST -H "Content-Type: application/json" -d '{ "title": "My title", "description": "Bla bla bla", "reloadNeeded": false }' http://localhost:3002/api/updates?password=[PASSWORD]
+	// curl -X POST -H "Content-Type: application/json" -d '{ "title": "Cool new feature!", "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam a nunc. In ante metus, gravida vel, bibendum et, mollis vitae, ipsum. Sed leo nibh, pulvinar dignissim, pretium eget, mattis id, erat.", "authors": "Henric, Andres", "url": "http://placekitten.com", "imageUrl": "http://placekitten.com/g/300/300", "reloadNeeded": true, "priority": 2 }' http://localhost:3002/api/updates?password=[PASSWORD]
 	create: function (req, res, next) {
-		if (req.query.password === 'M4EgsuY7PDZi') {
+		if (req.query.password === API_PASSWORD) {
 			var newUpdate = new Update(req.body);
 			newUpdate.save(function (err) {
 				if (err) {
@@ -40,9 +43,9 @@ module.exports = {
 	},
 
 	// Delete update
-	// curl -X DELETE http://localhost:3002/api/updates/5477a6f88906b9fc766c843e?password=M4EgsuY7PDZi
+	// curl -X DELETE http://localhost:3002/api/updates/5477a6f88906b9fc766c843e?password=[PASSWORD]
 	delete: function (req, res, next) {
-		if (req.query.password === 'M4EgsuY7PDZi') {
+		if (req.query.password === API_PASSWORD) {
 			var searchParams;
 			if (req.params.id === 'ALL') {
 				searchParams = {};
