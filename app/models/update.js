@@ -11,7 +11,8 @@ var UpdateSchema = new Schema({
 	imageUrl: String,
 	dateCreated: { type: Date, default: Date.now, index: true },
 	reloadNeeded: { type: Boolean, default: true },
-	priority: { type: Number, default: 2 } // 1-3
+	priority: { type: Number, default: 2 }, // 1-3
+	style: {} // CSS styles
 });
 
 // UpdateSchema.virtual('date')

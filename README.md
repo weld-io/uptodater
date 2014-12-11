@@ -40,12 +40,16 @@ List all:
 
 Add new update:
 
+	curl -X POST -H "Content-Type: application/json" -d '{ "title": "Example feature", "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam a nunc. In ante metus, gravida vel, bibendum et, mollis vitae, ipsum. Sed leo nibh, pulvinar dignissim, pretium eget, mattis id, erat.", "imageUrl": "https://placekitten.com/g/800/600" }' http://localhost:3002/api/updates?password=[PASSWORD]
+
 	curl -X POST -H "Content-Type: application/json" -d '{ "title": "Minimum post" }' http://localhost:3002/api/updates?password=[PASSWORD]
 
-	curl -X POST -H "Content-Type: application/json" -d '{ "title": "My title", "description": "Bla bla bla", "reloadNeeded": false }' http://localhost:3002/api/updates?password=[PASSWORD]
-
-	curl -X POST -H "Content-Type: application/json" -d '{ "title": "Cool new feature!", "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam a nunc. In ante metus, gravida vel, bibendum et, mollis vitae, ipsum. Sed leo nibh, pulvinar dignissim, pretium eget, mattis id, erat.", "authors": "Henric, Andres", "url": "http://placekitten.com", "imageUrl": "http://placekitten.com/g/300/300", "reloadNeeded": true, "priority": 2 }' http://localhost:3002/api/updates?password=[PASSWORD]
+	curl -X POST -H "Content-Type: application/json" -d '{ "title": "Maximum post", "description": "", "authors": "", "url": "", "imageUrl": "", "dateCreated": "", "reloadNeeded": "", "priority": "" }' http://localhost:3002/api/updates?password=[PASSWORD]
 
 Delete update:
 
 	curl -X DELETE http://localhost:3002/api/updates/5477a6f88906b9fc766c843e?password=[PASSWORD]
+
+Delete all:
+
+	curl -X DELETE http://localhost:3002/api/updates/ALL?password=[PASSWORD]

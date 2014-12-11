@@ -12,7 +12,7 @@ module.exports = {
 			searchQuery = { dateCreated: { "$gte": new Date(req.query.from), "$lt": currentTime } };
 		}
 
-		Update.find(searchQuery, null, { sort: {dateCreated: -1} }, function (err, updates) {
+		Update.find(searchQuery, null, { sort: { priority: 1, dateCreated: -1 } }, function (err, updates) {
 			if (err) {
 				return res.json(400, err);
 			}
