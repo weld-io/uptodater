@@ -1,4 +1,4 @@
-// Example model
+'use strict';
 
 var mongoose = require('mongoose'),
 	Schema = mongoose.Schema;
@@ -14,10 +14,5 @@ var UpdateSchema = new Schema({
 	priority: { type: Number, default: 2 }, // 1-3
 	style: {} // CSS styles
 });
-
-// UpdateSchema.virtual('date')
-// 	.get(function(){
-// 		return this._id.getTimestamp();
-// 	});
 
 mongoose.model('Update', UpdateSchema);

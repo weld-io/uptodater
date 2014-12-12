@@ -16,13 +16,12 @@ Example:
 
 ...would return a list of updates since Scorpions released "Wind of Change", or an empty JSON array if nothing had changed.
 
-## Implementation
-
-UpToDater is based on the [Yeoman Express generator](https://github.com/petecoop/generator-express) with the "MVC" option.
-
 ## How to Run
 
 Just start with:
+
+	# Set password used in API requests
+	export UPTODATER_PASSWORD=MYPASSWORD
 
 	grunt
 
@@ -40,16 +39,28 @@ List all:
 
 Add new update:
 
-	curl -X POST -H "Content-Type: application/json" -d '{ "title": "Example feature", "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam a nunc. In ante metus, gravida vel, bibendum et, mollis vitae, ipsum. Sed leo nibh, pulvinar dignissim, pretium eget, mattis id, erat.", "imageUrl": "https://placekitten.com/g/800/600" }' http://localhost:3002/api/updates?password=[PASSWORD]
-
-	curl -X POST -H "Content-Type: application/json" -d '{ "title": "Minimum post" }' http://localhost:3002/api/updates?password=[PASSWORD]
-
-	curl -X POST -H "Content-Type: application/json" -d '{ "title": "Maximum post", "description": "", "authors": "", "url": "", "imageUrl": "", "dateCreated": "", "reloadNeeded": "", "priority": "" }' http://localhost:3002/api/updates?password=[PASSWORD]
+	curl -X POST -H "Content-Type: application/json" -d '{ "title": "Example feature", "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam a nunc. In ante metus, gravida vel, bibendum et, mollis vitae, ipsum. Sed leo nibh, pulvinar dignissim, pretium eget, mattis id, erat.", "imageUrl": "https://placekitten.com/g/800/600" }' http://localhost:3002/api/updates?password=MYPASSWORD
+	curl -X POST -H "Content-Type: application/json" -d '{ "title": "Minimum post" }' http://localhost:3002/api/updates?password=MYPASSWORD
+	curl -X POST -H "Content-Type: application/json" -d '{ "title": "Maximum post", "description": "", "authors": "", "url": "", "imageUrl": "", "dateCreated": "", "reloadNeeded": "", "priority": "" }' http://localhost:3002/api/updates?password=MYPASSWORD
 
 Delete update:
 
-	curl -X DELETE http://localhost:3002/api/updates/5477a6f88906b9fc766c843e?password=[PASSWORD]
+	curl -X DELETE http://localhost:3002/api/updates/5477a6f88906b9fc766c843e?password=MYPASSWORD
 
 Delete all:
 
-	curl -X DELETE http://localhost:3002/api/updates/ALL?password=[PASSWORD]
+	curl -X DELETE http://localhost:3002/api/updates/ALL?password=MYPASSWORD
+
+## Implementation
+
+UpToDater is based on the [Yeoman Express generator](https://github.com/petecoop/generator-express) with the "MVC" option.
+
+## Deploying on Heroku
+
+	# Set up and configure app
+	heroku create MYAPPNAME
+	heroku addons:add mongolab
+	heroku config:set NODE_ENV=production
+
+	# Set password used in API requests
+	heroku config:set UPTODATER_PASSWORD=MYPASSWORD
