@@ -43,6 +43,10 @@ Add new update:
 	curl -X POST -H "Content-Type: application/json" -d '{ "title": "Minimum post" }' http://localhost:3002/api/updates?password=MYPASSWORD
 	curl -X POST -H "Content-Type: application/json" -d '{ "title": "Maximum post", "description": "", "authors": "", "url": "", "imageUrl": "", "dateCreated": "", "reloadNeeded": "", "priority": "" }' http://localhost:3002/api/updates?password=MYPASSWORD
 
+Edit update:
+
+	curl -X PUT -H "Content-Type: application/json" -d '{ "title": "New name of feature" }' http://localhost:3004/api/updates/5477a6f88906b9fc766c843e?password=MYPASSWORD
+
 Delete update:
 
 	curl -X DELETE http://localhost:3002/api/updates/5477a6f88906b9fc766c843e?password=MYPASSWORD

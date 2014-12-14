@@ -19,6 +19,7 @@ module.exports = function (app, config) {
 
 	router.get('/api/updates', apiController.list);
 	router.post('/api/updates', apiController.create);
+	router.put('/api/updates/:id', apiController.update);
 	router.delete('/api/updates/:id', apiController.delete);
 
 	router.get('/updates', updatesController.index);

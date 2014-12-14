@@ -42,6 +42,22 @@ module.exports = {
 		}
 	},
 
+	// Update update (!)
+	update: function (req, res, next) {
+		Update.update(
+			{ _id: req.params.id },
+			req.body,
+			function (updateErr, numberAffected, rawResponse) {
+				if (updateErr) {
+					res.json(500, updateErr);
+				}
+				else {
+					res.json(200, 'Updated update ' + req.params.id);
+				}
+			}
+		);
+	},
+
 	// Delete update
 	delete: function (req, res, next) {
 		if (req.query.password === API_PASSWORD) {
