@@ -50,7 +50,7 @@ module.exports = {
 				searchParams = {};
 			}
 			else {
-				{ _id: req.params.id }
+				searchParams = { _id: req.params.id }
 			}
 
 			Update.remove(
@@ -60,7 +60,7 @@ module.exports = {
 						res.json(500, updateErr);
 					}
 					else {
-						res.json(200, 'Deletion complete');
+						res.json(200, 'Deleted ' + numberAffected + ' updates');
 					}
 				}
 			);
