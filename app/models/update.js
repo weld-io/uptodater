@@ -10,7 +10,7 @@ var UpdateSchema = new Schema({
 	url: String,
 	imageUrl: String,
 	dateCreated: { type: Date, default: Date.now, index: true },
-	reloadNeeded: { type: Boolean, default: true },
+	reloadNeeded: { type: Boolean, default: false },
 	priority: { type: Number, default: 2 }, // 1-3
 	style: {} // CSS styles
 });
