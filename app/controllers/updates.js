@@ -9,7 +9,7 @@ module.exports = {
 		Update.find(function (err, updates) {
 			if (err) return next(err);
 			res.render('updates/index', {
-				title: 'Updates',
+				title: 'All updates',
 				updates: updates
 			});
 		});

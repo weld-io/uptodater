@@ -5,7 +5,11 @@
 <% if (updates.length) { %>
 	<ul>
 		<% updates.forEach(function (update) { %>
-			<li><%= update.title %></li>
+			<li>
+				<%= formatDate(update.dateCreated) %>:
+				<strong><%= update.title %>.</strong>
+				<%= update.description %>
+			</li>
 		<% }) %>
 	</ul>
 <% } %>

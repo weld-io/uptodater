@@ -2,7 +2,7 @@
 
 UpToDater is a backend API for an in-app service that checks if the app has been updated since the last time the user logged or refreshed their browser.
 
-It was inspired by Wufoo's similar service, as described by founder Kevin Hale in [“How to Build Products Users Love”](http://startupclass.samaltman.com/courses/lec07/) in How to Start a Startup.
+It was inspired by Wufoo's similar service, as described by founder Kevin Hale in [“How to Build Products Users Love”](http://startupclass.samaltman.com/courses/lec07/) in “How to Start a Startup”.
 
 ![UpToDater example](example.png)
 
@@ -14,7 +14,7 @@ Example:
 
 	curl http://localhost:3002/api/updates?from=1991-01-03
 
-...would return a list of updates since Scorpions released "Wind of Change", or an empty JSON array if nothing had changed.
+...would return a list of updates since Scorpions released “Wind of Change”, or an empty JSON array if nothing had changed.
 
 ## How to Run
 
@@ -54,6 +54,20 @@ Delete update:
 Delete all:
 
 	curl -X DELETE http://localhost:3002/api/updates/ALL?password=MYPASSWORD
+
+## Data properties
+
+	var UpdateSchema = new Schema({
+		title: { type: String, required: true },
+		description: String,
+		authors: String,
+		url: String,
+		imageUrl: String,
+		dateCreated: { type: Date, default: Date.now, index: true },
+		reloadNeeded: { type: Boolean, default: false },
+		priority: { type: Number, default: 2 }, // 1-3
+		style: {} // CSS styles
+	});
 
 ## Implementation
 
