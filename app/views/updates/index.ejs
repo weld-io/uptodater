@@ -9,6 +9,8 @@
 				<%= formatDate(update.dateCreated) %>:
 				<strong><%= update.title %>.</strong>
 				<%= update.description %>
+				<a href="<%= update.url %>" target="_blank">Link</a>
+				<a href="<%= update.imageUrl %>" target="_blank">Image</a>
 			</li>
 		<% }) %>
 	</ul>
