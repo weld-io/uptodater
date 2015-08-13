@@ -8,7 +8,9 @@
 			<li>
 				<%= formatDate(update.dateCreated) %>:
 				<strong><%= update.title %>.</strong>
-				<%= update.description %>
+				<% if (update.description) { %>
+					<%= update.description %>
+				<% } %>
 				<% if (update.url) { %>
 					<a href="<%= update.url %>" target="_blank">Link</a> |
 				<% } %>
