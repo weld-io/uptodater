@@ -1,6 +1,6 @@
 # UpToDater
 
-UpToDater is a backend API for an in-app service that checks if the app has been updated since the last time the user logged or refreshed their browser.
+UpToDater is an API service for showing the users the latest updates and features in an application. Use it to check if the app has been updated since the last time the user logged or refreshed their browser.
 
 It was inspired by Wufoo's similar service, as described by founder Kevin Hale in [“How to Build Products Users Love”](http://startupclass.samaltman.com/courses/lec07/) in “How to Start a Startup”.
 
