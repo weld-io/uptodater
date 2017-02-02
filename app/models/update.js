@@ -9,6 +9,7 @@ var UpdateSchema = new Schema({
 	authors: String,
 	url: String,
 	imageUrl: String,
+	videoUrl: String,
 	dateCreated: { type: Date, default: Date.now, index: true },
 	reloadNeeded: { type: Boolean, default: false },
 	priority: { type: Number, default: 2 }, // 1-3
