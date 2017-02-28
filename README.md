@@ -4,6 +4,14 @@ UpToDater is an API service for showing the users the latest updates and feature
 
 It was inspired by Wufoo's similar service, as described by founder Kevin Hale in [“How to Build Products Users Love”](http://startupclass.samaltman.com/courses/lec07/) in “How to Start a Startup”.
 
+
+Made by the team at **Weld** ([www.weld.io](https://www.weld.io?utm_source=github-uptodater)), the code-free app and web creation tool:
+
+[![Weld](https://s3-eu-west-1.amazonaws.com/weld-social-and-blog/gif/weld_explained.gif)](https://www.weld.io?utm_source=github-uptodater)
+
+
+## Screenshot
+
 ![UpToDater example](example.png)
 
 ## Usage
