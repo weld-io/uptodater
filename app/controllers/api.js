@@ -1,5 +1,6 @@
 'use strict';
 
+var _ = require('lodash');
 var mongoose = require('mongoose');
 var Update = mongoose.model('Update');
 
@@ -9,12 +10,21 @@ module.exports = {
 
 	list: function (req, res, next) {
 		var searchQuery = {};
-		if (req.query.from) {
-			var currentTime = new Date();
-			searchQuery = { dateCreated: { "$gte": new Date(req.query.from), "$lt": currentTime } };
+
+		// /api/updates?all=true
+		if (!req.query.all) {
+			const currentTime = new Date();
+			_.set(searchQuery, 'dateCreated.$lt', currentTime);
 		}
 
-		Update.find(searchQuery, null, { sort: { dateCreated: -1 } }, function (err, updates) {
+		// /api/updates?from=2015-01-01
+		if (req.query.from) {
+			_.set(searchQuery, 'dateCreated.$gte', new Date(req.query.from));
+		}
+
+		const sorting = { sort: { dateCreated: -1 } };
+
+		Update.find(searchQuery, null, sorting, function (err, updates) {
 			if (err) {
 				return res.json(400, err);
 			}

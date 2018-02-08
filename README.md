@@ -43,7 +43,7 @@ List new:
 
 List all:
 
-	curl http://localhost:3002/api/updates
+	curl http://localhost:3002/api/updates?all=true
 
 Add new update:
 
